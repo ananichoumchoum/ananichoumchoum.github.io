@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Linking, Image, Modal} from 'react-native';
-import { AntDesign } from '@expo/vector-icons'
-import { FontAwesome } from '@expo/vector-icons';
+// import { AntDesign } from '@expo/vector-icons'
+// import { FontAwesome } from '@expo/vector-icons';
 import SvgComponent from './Zigzag';
 import SvgComponent2 from './Zigzag2';
 import SvgComponent3 from './Zigzag3';
@@ -34,7 +34,7 @@ const HomePage = () => {
                 <Text style={styles.navLinkPlus}>+</Text>
                 <View style={styles.dropdownContainer}>
                   <TouchableOpacity onPress={toggleDropdown} style={styles.dropdownButton}>
-                    <AntDesign name={showDropdown ? "up" : "down"} size={12} color="#7d3482" />
+                    {/* <AntDesign name={showDropdown ? "up" : "down"} size={12} color="#7d3482" /> */}
                   </TouchableOpacity>
                   {showDropdown && (
                     <View style={styles.dropdown}>
@@ -145,15 +145,15 @@ const HomePage = () => {
                         <View style={styles.shareLinks}>
                         <TouchableOpacity style={styles.shareLink} onPress={() => Linking.openURL('https://www.linkedin.com/in/anne--smith/')}>
                           <Text>{'\n'}</Text>
-                          <FontAwesome name="linkedin" style={styles.shareIcon} />
+                          {/* <FontAwesome name="linkedin" style={styles.shareIcon} /> */}
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.shareLink} onPress={() => Linking.openURL('https://www.instagram.com/ananichoumchoum')}>
                           <Text>{'\n'}</Text>
-                          <FontAwesome name="instagram" style={styles.shareIcon} />
+                          {/* <FontAwesome name="instagram" style={styles.shareIcon} /> */}
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.shareLink} onPress={() => Linking.openURL('https://github.com/ananichoumchoum')}>
                           <Text>{'\n'}</Text>
-                          <FontAwesome name="github" style={styles.shareIcon} />
+                          {/* <FontAwesome name="github" style={styles.shareIcon} /> */}
                         </TouchableOpacity>
                         </View>
                       </View>
@@ -168,7 +168,7 @@ const HomePage = () => {
                     <Image style={[styles.imageRound, { marginRight: 50 }]} source={require('../assets/image6.jpg')} />
                   </View>
                   <TouchableOpacity style={styles.arrow} onPress={() => container1Ref.current.scrollIntoView({ behavior: "smooth" })}>
-                      <FontAwesome name="arrow-up" style={styles.arrowIcon} />
+                      {/* <FontAwesome name="arrow-up" style={styles.arrowIcon} /> */}
                   </TouchableOpacity>
                 </View>
             </View>
