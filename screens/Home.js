@@ -60,7 +60,7 @@ const HomePage = () => {
             <Text style={styles.navLink} onPress={() => container4Ref.current.scrollIntoView({ behavior: "smooth" })}>Contact</Text>
                 <Text style={styles.navLinkPlus}>+</Text>
                 <View style={styles.dropdownContainer}>
-                  <TouchableOpacity onPress={toggleDropdown} style={styles.dropdownButton}>
+                  <TouchableOpacity onPress={toggleDropdown}>
                     <AntDesign name={showDropdown ? "up" : "down"} size={12} color="#7d3482" />
                   </TouchableOpacity>
                   {showDropdown && (
@@ -83,7 +83,7 @@ const HomePage = () => {
                 </View>
                 </View>
                 <View style={styles.svgView}>  
-                <SvgComponent style={{marginTop: -90, backgroundColor: '#'}}></SvgComponent>
+                <SvgComponent style={{ marginTop: -90, backgroundColor: '#' }}/>
                 </View>
                 <View style={styles.container2} ref={container2Ref}>
                     <View style={styles.rightContainer}>
@@ -126,7 +126,7 @@ const HomePage = () => {
                 </View>
                 <View style={styles.container3} ref={container3Ref}>
                   <View style={styles.svgView}>  
-                    <SvgComponent3 style={{backgroundColor: 'white'}}></SvgComponent3>
+                    <SvgComponent3 style={{ backgroundColor: 'white' }}/>
                   </View>
                   <Text style={styles.textResume}>Clickable Resume:                                                                                                                       I have developed and designed a React Native application:</Text>
                   <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
@@ -179,7 +179,7 @@ const HomePage = () => {
                   </View>
                 </View>
                 <View style={styles.svgView}>  
-                <SvgComponent2 style={{marginTop: -10, backgroundColor: '#E2E2E2'}}></SvgComponent2>
+                <SvgComponent2 style={{ marginTop: -10, backgroundColor: '#E2E2E2' }}/>
                 </View>
                 <View style={styles.container4} ref={container4Ref}>
                   <View style={[styles.contactBox, { flex: 1 }]}>
@@ -395,7 +395,6 @@ const styles = StyleSheet.create({
   imagePort: {
     width: 800,
     height: 400,
-    marginTop:10,
     flexDirection: 'row',
     marginLeft:80,
     marginTop:15,
