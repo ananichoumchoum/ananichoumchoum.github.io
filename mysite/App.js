@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import HomePage from './screens/Home';
-import Blog from './screens/Blog'
 
 const MyComponent = () => {
   return (

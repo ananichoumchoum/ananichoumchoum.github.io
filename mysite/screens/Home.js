@@ -1,11 +1,19 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Linking, Image, Modal} from 'react-native';
-// import { AntDesign } from '@expo/vector-icons'
-// import { FontAwesome } from '@expo/vector-icons';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Linking, Image, Modal, TouchableWithoutFeedback} from 'react-native';
+import { AntDesign, Ionicons, FontAwesome } from '@expo/vector-icons'
 import SvgComponent from './Zigzag';
 import SvgComponent2 from './Zigzag2';
 import SvgComponent3 from './Zigzag3';
 import resumeImage from '../assets/resume.jpg';
+
+const images = [
+  { id: 1, source: require('../assets/ios.PNG') },
+  { id: 2, source: require('../assets/ios6.PNG') },
+  { id: 3, source: require('../assets/ios2.PNG') },
+  { id: 4, source: require('../assets/ios3.PNG') },
+  { id: 5, source: require('../assets/ios5.PNG') },
+  { id: 6, source: require('../assets/ios4.PNG') },
+];
 
 const HomePage = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -15,6 +23,25 @@ const HomePage = () => {
   const container4Ref = useRef(null);
   const toggleDropdown = () => {setShowDropdown(!showDropdown);};
   const [modalVisible, setModalVisible] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleScroll = (event) => {
+    const contentOffset = event.nativeEvent.contentOffset.x;
+    const index = Math.round(contentOffset / 280);
+    setCurrentIndex(index * 3);
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 3);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex < images.length - 3) {
+      setCurrentIndex(currentIndex + 3);
+    }
+  };
   const downloadImage = () => {
     const link = document.createElement('a');
     link.href = resumeImage;
@@ -34,7 +61,7 @@ const HomePage = () => {
                 <Text style={styles.navLinkPlus}>+</Text>
                 <View style={styles.dropdownContainer}>
                   <TouchableOpacity onPress={toggleDropdown} style={styles.dropdownButton}>
-                    {/* <AntDesign name={showDropdown ? "up" : "down"} size={12} color="#7d3482" /> */}
+                    <AntDesign name={showDropdown ? "up" : "down"} size={12} color="#7d3482" />
                   </TouchableOpacity>
                   {showDropdown && (
                     <View style={styles.dropdown}>
@@ -101,10 +128,10 @@ const HomePage = () => {
                   <View style={styles.svgView}>  
                     <SvgComponent3 style={{backgroundColor: 'white'}}></SvgComponent3>
                   </View>
-                  <Text style={styles.textResume}>Resume:</Text>
-                  <TouchableOpacity onPress={() => setModalVisible(true)}>
+                  <Text style={styles.textResume}>Clickable Resume:                                                                                                                       I have developed and designed a React Native application:</Text>
+                  <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
                     <Image style={styles.imageModal} source={require('../assets/resume.jpg')} />
-                  </TouchableOpacity>
+                  </TouchableWithoutFeedback>
                   <Modal
                     animationType="slide"
                     visible={modalVisible}
@@ -123,16 +150,36 @@ const HomePage = () => {
                     </View>
                   </Modal>
                   <View style={styles.innerContainer}>
-                    <Image style={[styles.imagePort, { marginRight: 10 }]} source={require('../assets/ios.PNG')} />
-                    <Image style={[styles.imagePort, { marginRight: 10 }]} source={require('../assets/ios6.PNG')} />
-                    <Image style={[styles.imagePort, { marginRight: 10 }]} source={require('../assets/ios2.PNG')} />
-                    <Image style={[styles.imagePort, { marginRight: 10 }]} source={require('../assets/ios3.PNG')} />
-                    <Image style={[styles.imagePort, { marginRight: 10 }]} source={require('../assets/ios5.PNG')} />
-                    <Image style={[styles.imagePort, { marginRight: 10 }]} source={require('../assets/ios4.PNG')} />
+                    <View>
+                      <ScrollView
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        onScroll={handleScroll}
+                        pagingEnabled
+                      >
+                        <View style={styles. imagePort}>
+                          {images.slice(currentIndex, currentIndex + 3).map((image) => (
+                            <Image
+                              key={image.id}
+                              source={image.source}
+                              style={{ width: 185, height: 395, marginHorizontal: 20, borderRadius:10, }}
+                            />
+                          ))}
+                        </View>
+                      </ScrollView>
+                      <View style={{ flexDirection: 'row', marginLeft: 360, paddingHorizontal: 40, }}>
+                        <TouchableOpacity onPress={handlePrev}>
+                          <Ionicons name="arrow-back" size={24} color="black "/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={handleNext}>
+                          <Ionicons name="arrow-forward" size={24} color="black" />
+                        </TouchableOpacity>
+                      </View>
+                    </View>
                   </View>
                 </View>
                 <View style={styles.svgView}>  
-                <SvgComponent2 style={{marginTop: -90, backgroundColor: '#E2E2E2'}}></SvgComponent2>
+                <SvgComponent2 style={{marginTop: -10, backgroundColor: '#E2E2E2'}}></SvgComponent2>
                 </View>
                 <View style={styles.container4} ref={container4Ref}>
                   <View style={[styles.contactBox, { flex: 1 }]}>
@@ -145,15 +192,15 @@ const HomePage = () => {
                         <View style={styles.shareLinks}>
                         <TouchableOpacity style={styles.shareLink} onPress={() => Linking.openURL('https://www.linkedin.com/in/anne--smith/')}>
                           <Text>{'\n'}</Text>
-                          {/* <FontAwesome name="linkedin" style={styles.shareIcon} /> */}
+                          <FontAwesome name="linkedin" style={styles.shareIcon} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.shareLink} onPress={() => Linking.openURL('https://www.instagram.com/ananichoumchoum')}>
                           <Text>{'\n'}</Text>
-                          {/* <FontAwesome name="instagram" style={styles.shareIcon} /> */}
+                          <FontAwesome name="instagram" style={styles.shareIcon} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.shareLink} onPress={() => Linking.openURL('https://github.com/ananichoumchoum')}>
                           <Text>{'\n'}</Text>
-                          {/* <FontAwesome name="github" style={styles.shareIcon} /> */}
+                          <FontAwesome name="github" style={styles.shareIcon} />
                         </TouchableOpacity>
                         </View>
                       </View>
@@ -168,7 +215,7 @@ const HomePage = () => {
                     <Image style={[styles.imageRound, { marginRight: 50 }]} source={require('../assets/image6.jpg')} />
                   </View>
                   <TouchableOpacity style={styles.arrow} onPress={() => container1Ref.current.scrollIntoView({ behavior: "smooth" })}>
-                      {/* <FontAwesome name="arrow-up" style={styles.arrowIcon} /> */}
+                      <FontAwesome name="arrow-up" style={styles.arrowIcon} />
                   </TouchableOpacity>
                 </View>
             </View>
@@ -291,7 +338,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#E2E2E2',
     position: 'relative',
-    marginTop:-10,
   },
   textResume:{
     fontWeight:'bold',
@@ -333,8 +379,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   innerContainer: {
-    width: 1090,
-    height: 440,  
+    width: 810,
+    height: 445,  
     flexDirection: 'row',
     backgroundColor: '#E2E2E2',
     position: 'absolute',
@@ -343,20 +389,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 10,
     borderRadius: 10,
-    right: 10,
-    top: 20,
+    right: 65,
+    top: 80,
   },
   imagePort: {
-    width: 160,
-    height: 350,
-    resizeMode: 'contain',
-    marginTop:40,
-    marginLeft:11,
-    borderRadius:10,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 35,
-    shadowColor: 'grey',
+    width: 800,
+    height: 400,
+    marginTop:10,
+    flexDirection: 'row',
+    marginLeft:80,
+    marginTop:15,
+
   },
   container4: {
     flex: 1,
