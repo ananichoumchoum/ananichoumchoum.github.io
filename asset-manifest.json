@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.js": "/static/js/main.5845edbf.js",
+    "static/js/525.589d5370.js": "/static/js/525.589d5370.js",
+    "static/media/portrait.png": "/static/media/portrait.a3a3e18f75fc81efcbfc.png",
+    "static/media/image3.jpg": "/static/media/image3.1b53773fc3fa43d437fd.jpg",
+    "static/media/image2.jpg": "/static/media/image2.a04a11bb290a0f00fb63.jpg",
+    "static/media/image6.jpg": "/static/media/image6.665245671c1332112533.jpg",
+    "static/media/image1.jpg": "/static/media/image1.f6b3fe68cb0582891177.jpg",
+    "static/media/image5.jpg": "/static/media/image5.91bdf24ca46bfe39603a.jpg",
+    "static/media/ios2.PNG": "/static/media/ios2.646a32a74ba0e77f1141.PNG",
+    "static/media/image4.jpg": "/static/media/image4.1c6534650abd0d737c3a.jpg",
+    "static/media/ios3.PNG": "/static/media/ios3.5b5159f734717a8fe474.PNG",
+    "static/media/ios4.PNG": "/static/media/ios4.23d19124676d8145654f.PNG",
+    "static/media/ios5.PNG": "/static/media/ios5.e769f62e30ec64c8fcc9.PNG",
+    "static/media/mountains3.jpeg": "/static/media/mountains3.878fd2405e5d46f87807.jpeg",
+    "static/media/ios6.PNG": "/static/media/ios6.279ad19f44de02867cc6.PNG",
+    "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
+    "static/media/ios.PNG": "/static/media/ios.89c7fa120d280593b0d2.PNG",
+    "static/media/FontAwesome.ttf": "/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
+    "static/media/resume.jpg": "/static/media/resume.bb75dd90dd4f04f46786.jpg",
+    "static/media/design.png": "/static/media/design.605d38bdc2b9f928411a.png",
+    "static/media/develop.png": "/static/media/develop.34fd9bd8ab5941a45055.png",
+    "static/media/research.png": "/static/media/research.74a8748a252968314065.png",
+    "static/media/AntDesign.ttf": "/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
+    "static/media/horiz.png": "/static/media/horiz.c5df3b89c14fe9311770.png",
+    "favicon.ico": "/favicon.ico",
+    "index.html": "/index.html",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon-16.png": "/favicon-16.png",
+    "serve.json": "/serve.json",
+    "manifest.json": "/manifest.json",
+    "main.5845edbf.js.map": "/static/js/main.5845edbf.js.map",
+    "525.589d5370.js.map": "/static/js/525.589d5370.js.map"
+  },
+  "entrypoints": [
+    "static/js/525.589d5370.js",
+    "static/js/main.5845edbf.js"
+  ]
+}
